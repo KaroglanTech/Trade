@@ -1,0 +1,18 @@
+plugins{
+    id 'org.spongepowered.plugin' version '0.8.1'
+}
+
+group 'Tollainmear'
+version '3.3'
+description = 'Go trafe with your friends!'
+
+dependencies {
+    //compile 'org.spongepowered:spongeapi:5.1.0'
+    compile 'org.spongepowered:spongeapi:7.+'
+}
+
+sourceSets{
+    main{
+        resources.srcDir 'resources/'
+    }
+}
