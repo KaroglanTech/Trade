@@ -1,13 +1,13 @@
-package org.github.tollainmear.trade;
+package com.github.tollainmear.trade;
 
+import com.github.tollainmear.trade.utils.Metrics;
 import com.google.common.base.Charsets;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.inject.Inject;
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
-import org.github.tollainmear.trade.utils.Metrics;
-import org.github.tollainmear.trade.utils.Translator;
+import com.github.tollainmear.trade.utils.Translator;
 import org.slf4j.Logger;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.command.CommandSource;
@@ -42,7 +42,7 @@ public class Trade {
     private static final String version = "1.0";
 
     private static Trade instance;
-    private CommandManager kseCmdManager;
+    private CommandManager CmdManager;
     private Translator translator;
     private boolean hasNewVersion = false;
     private static String newVersion = version;
@@ -67,16 +67,16 @@ public class Trade {
     @Inject
     private Metrics metrics;
 
-    public void setKseCmdManager(CommandManager kseCmdManager) {
-        this.kseCmdManager = kseCmdManager;
+    public void setCmdManager(CommandManager cmdManager) {
+        this.CmdManager = cmdManager;
     }
 
     @Listener
     public void onPreInit(GamePostInitializationEvent event) throws IOException {
         instance = this;
         cfgInit();
-        kseCmdManager = new CommandManager(this);
-        kseCmdManager.init(this);
+        CmdManager = new CommandManager(this);
+        CmdManager.init(this);
     }
 
     @Listener
@@ -100,7 +100,7 @@ public class Trade {
     @Listener
     public void onPlayerjoin(ClientConnectionEvent.Join event,@First Player player) throws MalformedURLException {
         //if (hasNewVersion){
-            if(player.hasPermission("kse.admin")){
+            if(player.hasPermission("trade.admin")){
                 player.sendMessage(translator.getText("message.KSEprefix").concat(translator.getText("update.hasNew").concat(Text.of(newVersion))));
                 player.sendMessage(translator.getText("message.KSEprefix").concat(translator.getText("update.clickMSG").toBuilder().onClick(TextActions.openUrl(new URL(releasePage))).build()));
 //                player.sendMessage(TextSerializers.FORMATTING_CODE.deserialize(translator.getstring("update.hasNew") + newVersion));

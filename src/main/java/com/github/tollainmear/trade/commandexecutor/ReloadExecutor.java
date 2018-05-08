@@ -1,8 +1,8 @@
-package org.github.tollainmear.trade.commandexecutor;
+package com.github.tollainmear.trade.commandexecutor;
 
-import org.github.tollainmear.trade.Trade;
-import org.github.tollainmear.trade.CommandManager;
-import org.github.tollainmear.trade.utils.Translator;
+import com.github.tollainmear.trade.Trade;
+import com.github.tollainmear.trade.CommandManager;
+import com.github.tollainmear.trade.utils.Translator;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
@@ -24,7 +24,7 @@ public class ReloadExecutor implements CommandExecutor {
             rm.init(kse);
             kse.setTranslator(new Translator(kse));
             kse.getTranslator().checkUpdate();
-            kse.setKseCmdManager(new CommandManager(kse));
+            kse.setCmdManager(new CommandManager(kse));
         } catch (IOException e) {
             e.printStackTrace();
         }

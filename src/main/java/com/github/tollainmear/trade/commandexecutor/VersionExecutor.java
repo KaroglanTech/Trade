@@ -1,4 +1,4 @@
-package org.github.tollainmear.trade.commandexecutor;
+package com.github.tollainmear.trade.commandexecutor;
 
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;

@@ -1,7 +1,7 @@
-package org.github.tollainmear.trade.utils;
+package com.github.tollainmear.trade.utils;
 
+import com.github.tollainmear.trade.Trade;
 import com.google.common.base.Charsets;
-import org.github.tollainmear.trade.Trade;
 import org.slf4j.Logger;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.asset.Asset;

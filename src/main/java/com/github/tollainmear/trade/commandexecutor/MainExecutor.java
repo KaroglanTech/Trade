@@ -1,7 +1,7 @@
-package org.github.tollainmear.trade.commandexecutor;
+package com.github.tollainmear.trade.commandexecutor;
 
-import org.github.tollainmear.trade.Trade;
-import org.github.tollainmear.trade.utils.Translator;
+import com.github.tollainmear.trade.Trade;
+import com.github.tollainmear.trade.utils.Translator;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
@@ -22,13 +22,7 @@ public class MainExecutor implements CommandExecutor {
         List<Text> contents = new ArrayList<>();
         translator = Trade.getInstance().getTranslator();
 
-        contents.add(Text.of(TextColors.GOLD, "/kse set [Lines] [Text]", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.edit")));
-        contents.add(Text.of(TextColors.GOLD, "/kse clear <Line>", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.clear")));
-        contents.add(Text.of(TextColors.GOLD, "/kse copy", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.copy")));
-        contents.add(Text.of(TextColors.GOLD, "/kse paste <Line>", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.paste")));
-        contents.add(Text.of(TextColors.GOLD, "/kse clipboard", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.clipboard")));
-        contents.add(Text.of(TextColors.GOLD, "/kse undo", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.undo")));
-        contents.add(Text.of(TextColors.GOLD, "/kse redo", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.redo")));
+        contents.add(Text.of(TextColors.GOLD, "/kse to [PlayrID]", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.edit")));
         contents.add(Text.of(TextColors.GOLD, "/kse version", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.version")));
         contents.add(Text.of(TextColors.GOLD, "/kse reload", TextColors.GRAY, " - ", TextColors.YELLOW, translator.getstring("command.reload")));
         contents.add(Text.of(translator.getstring("github")));

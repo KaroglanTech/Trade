@@ -1,4 +1,4 @@
-package org.github.tollainmear.trade.utils;
+package com.github.tollainmear.trade.utils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

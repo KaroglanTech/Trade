@@ -4,3 +4,6 @@
 
 ## NOTE
 This plugin was under developing, we will release this on Sponge ore soon.
+
+## Main contributor
+Tollainmear
