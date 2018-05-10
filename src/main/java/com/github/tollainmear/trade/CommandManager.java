@@ -22,14 +22,14 @@ public class CommandManager {
     public CommandManager(Trade plugin) {
         this.kse = plugin;
 
-        reload = CommandSpec.builder()
+        remote = CommandSpec.builder()
                 .permission("kse.remote")
                 .description(Text.of("allow you to trade with a remote player."))
-                .arguments(GenericArguments.none())
+                .arguments(GenericArguments.player(Text.of("target")))
                 .executor(new ReloadExecutor())
                 .build();
 
-        reload = CommandSpec.builder()
+        accecpt = CommandSpec.builder()
                 .permission("kse.use")
                 .description(Text.of("allow you to accept a trade request from other player."))
                 .arguments(GenericArguments.none())
@@ -55,13 +55,13 @@ public class CommandManager {
 
     public void init(Trade plugin) {
         org.spongepowered.api.command.CommandManager cmdManager = Sponge.getCommandManager();
-        cmdManager.register(plugin, this.get(), "trade", "tra", "tr");
+        cmdManager.register(plugin, this.cmd(), "trade", "tra", "tr");
         translator = kse.getTranslator();
         translator.logInfo("reportBug");
         translator.logInfo("github");
     }
 
-    public CommandCallable get() {
+    public CommandCallable cmd() {
         return CommandSpec.builder()
                 .description(Text.of("KSE's main command."))
                 .child(remote, "set")

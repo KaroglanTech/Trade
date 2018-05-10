@@ -13,8 +13,10 @@ import org.spongepowered.api.Sponge;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.config.ConfigDir;
 import org.spongepowered.api.config.DefaultConfig;
+import org.spongepowered.api.entity.EntityTypes;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Listener;
+import org.spongepowered.api.event.entity.InteractEntityEvent;
 import org.spongepowered.api.event.filter.cause.First;
 import org.spongepowered.api.event.game.GameReloadEvent;
 import org.spongepowered.api.event.game.state.GamePostInitializationEvent;
@@ -46,6 +48,7 @@ public class Trade {
     private Translator translator;
     private boolean hasNewVersion = false;
     private static String newVersion = version;
+    public TradeListener listner;
     private static String releasePage = "https://github.com/Tollainmear/Trade/releases";
 
     public static final String API_URL = "https://api.github.com/repos/tollainmear/Trade/releases";
@@ -77,7 +80,20 @@ public class Trade {
         cfgInit();
         CmdManager = new CommandManager(this);
         CmdManager.init(this);
+        listner = new TradeListener();
+        Sponge.getEventManager().registerListeners(this, listner);
     }
+
+//    @Listener
+//    public void OnPlayerInteractOtherPlayers(InteractEntityEvent event, @First Player player){
+//
+//        if (event.getTargetEntity().getType().equals(EntityTypes.PLAYER)){
+//            player.sendMessage(Text.of("Clicking"));
+//        }
+//        else{
+//            player.sendMessage(Text.of("No player founded!"));
+//        }
+//    }
 
     @Listener
     public void onStart(GameStartingServerEvent event) throws IOException {

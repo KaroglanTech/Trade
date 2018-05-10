@@ -13,15 +13,12 @@ import org.spongepowered.api.text.serializer.TextSerializers;
 import java.io.IOException;
 
 public class ReloadExecutor implements CommandExecutor {
-    private KSERecordsManager rm;
     private Trade kse;
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         kse = Trade.getInstance();
-        rm = KSERecordsManager.getInstance();
         try {
             kse.cfgInit();
-            rm.init(kse);
             kse.setTranslator(new Translator(kse));
             kse.getTranslator().checkUpdate();
             kse.setCmdManager(new CommandManager(kse));
